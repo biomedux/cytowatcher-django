@@ -356,6 +356,7 @@ def graph(request):
 										series_term]})
 
 			series_options_terms["channel%d_time" % (channel+1)] = [series_options_term]
+
 		chartData = DataPool(series=series)
 		chart = Chart(
 			datasource=chartData,
@@ -364,16 +365,23 @@ def graph(request):
 					"type" : "line",
 					"stacking" : False},
 				  "terms" : series_options_terms}],
-			chart_options= {'title': {
-               'text': 'Impedance Data'},
-           		'xAxis': {
-	                'title': {
-                   		'text': 'time(min)'}},
-                'yAxis': {										# update y Axis min, max
-           			'min' : 0,
-           			'max' : 30000,
-	                'title': {
-                   		'text': 'Impedance'}}})
+			chart_options= {
+				'title': {
+					'text': 'Impedance Data'
+				},
+				'xAxis': {
+					'title': {
+						'text': 'time(min)'}
+				},
+				'yAxis': {
+					'min' : 0,
+					'max' : 30000,
+					'title': {
+						'text': 'Impedance'
+					}
+				}
+			}
+		)
 
 		return render(request, 'graph.html', {'graphData':chart})
 	return HttpResponse('')
@@ -409,10 +417,9 @@ def exportDataToText(request):
 	response = HttpResponse(content, content_type='text/plain')
 	response['Content-Disposition'] = 'attachment; filename={0}'.format(file_name)
 
-	f = open("./test.txt", 'w')
-
 	# 파일로 서버에 저장 한 후 파일을 전송하는 경우 아래의 코드 사용
 	"""
+	f = open("./test.txt", 'w')
 	f.write(("{0:^19}\t{1:^7}\t{2:^6}\t{3:^9}\t{4:^9}\r\n").format("time", "channel", "freq", "Z", "R"))
 	for x in data:
 		f.write(("{0:>19}\t{1:^7}\t{2:>6}\t{3:>9}\t{4:>9}\r\n").format(str(x.time), str(x.channel), x.freq, x.Z, x.R))
@@ -428,7 +435,6 @@ def exportDataToText(request):
 	print(path)
 	"""
 	return response
-
 
 def error(request):
 	return render(request, 'error.html')

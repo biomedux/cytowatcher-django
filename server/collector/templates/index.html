@@ -3,7 +3,7 @@
 <head>
 
 <!-- <script type="text/javascript">
-  	function isMobile(){
+	  function isMobile(){
 		  var check = false;
 		  (function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino|android|ipad|playbook|silk/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01||nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) check = true;})(navigator.userAgent||navigator.vendor||window.opera);
 		  return check;
@@ -31,24 +31,24 @@
 
 	function validatePattern(item){
 		var pattern = item.attr('pattern');
-        var value = item.val();
+		var value = item.val();
 
-        return (!(pattern&&(value.length>0)&&!value.match( new RegExp('^'+pattern+'$') ))) && (value.length != 0);
+		return (!(pattern&&(value.length>0)&&!value.match( new RegExp('^'+pattern+'$') ))) && (value.length != 0);
 	}
 
 	// ----- checkbox 1~8 체크여부 확인
 	function validateChannels(){
 		var result = false;
 
-        // Checking channel
-        for(var i=1; i<=8; i++){
-        	var checkId = "#selectChannel" + (i);
+		// Checking channel
+		for(var i=1; i<=8; i++){
+			var checkId = "#selectChannel" + (i);
 
-        	if($(checkId).is(':checked')){
-        		result = true;
-        	}
-        }
-        return result;
+			if($(checkId).is(':checked')){
+				result = true;
+			}
+		}
+		return result;
 	}
 
 
@@ -56,28 +56,28 @@
 		var errorDialog = document.querySelector('#dialog_validation_error');
 		if (!errorDialog.showModal) {
 			dialogPolyfill.registerDialog(errorDialog);
-	    }
+		}
 
-	    errorDialog.querySelector('button:not([disabled])')
-	    .addEventListener('click', function() {
-	      	errorDialog.close();
-	    });
+		errorDialog.querySelector('button:not([disabled])')
+		.addEventListener('click', function() {
+			  errorDialog.close();
+		});
 
-	    errorDialog.showModal();
+		errorDialog.showModal();
 	}
 
 	function showChannelErrorDialog(){
 		var errorDialog = document.querySelector('#dialog_channel_error');
 		if (!errorDialog.showModal) {
 			dialogPolyfill.registerDialog(errorDialog);
-	    }
+		}
 
-	    errorDialog.querySelector('button:not([disabled])')
-	    .addEventListener('click', function() {
-	      	errorDialog.close();
-	    });
+		errorDialog.querySelector('button:not([disabled])')
+		.addEventListener('click', function() {
+			  errorDialog.close();
+		});
 
-	    errorDialog.showModal();
+		errorDialog.showModal();
 	}
 
 	// chipInfo를 받아서 채널 체크박스 활성화 / 비활성화
@@ -157,103 +157,103 @@
 			beforeSend: function(){
 			},
 			success: function(result){
-      			var jsonData = result;
+				var jsonData = result;
 
-      			if(jsonData["result"]){
-      				var state = jsonData.state;
-      				var startTime = jsonData.startTime;
+				if(jsonData["result"]){
+					var state = jsonData.state;
+					var startTime = jsonData.startTime;
 
-      				// setting the state data
-      				$('#state').text(state);
+					// setting the state data
+					$('#state').text(state);
 
-      				// Getting another information once
-      				if(state != "initializing"){
-	      				if(initCheck){
-	      					initCheck = false;
+					// Getting another information once
+					if(state != "initializing"){
+						if(initCheck){
+							initCheck = false;
 
-	      					if(state == "ready"){
-	      						$('#checkChip').prop("disabled", false);
-	      						$('#setup').prop("disabled", true);
-	      						for(var i=1; i<=6; i++){
-			          				$('#selectFreq' + i).prop("disabled", true);
-			          				$('#selectFreq' + i).prop("checked", false);
-			          				$('#selectFreq' + i + "_checker").attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-disabled is-upgraded");
-			          			}
-	      						$('#period').prop("disabled", true);
-	      						$('#period').val("");
-	      						$('#deadline').prop("disabled", true);
-	      						$('#deadline').val("");
-	      						$('#recording').prop("disabled", true);
-	      						$('#recording').prop("checked", false);
-	      							$('#recordingChecker').attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-disabled is-upgraded");
-      							$('#elapsed_time').text("");
-      							$('#running_time').val("");
-	      						$('#running_time').css("color", "black");
+							if(state == "ready"){
+								$('#checkChip').prop("disabled", false);
+								$('#setup').prop("disabled", true);
+								for(var i=1; i<=6; i++){
+									$('#selectFreq' + i).prop("disabled", true);
+									$('#selectFreq' + i).prop("checked", false);
+									$('#selectFreq' + i + "_checker").attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-disabled is-upgraded");
+								}
+								$('#period').prop("disabled", true);
+								$('#period').val("");
+								$('#deadline').prop("disabled", true);
+								$('#deadline').val("");
+								$('#recording').prop("disabled", true);
+								$('#recording').prop("checked", false);
+								$('#recordingChecker').attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-disabled is-upgraded");
+								$('#elapsed_time').text("");
+								$('#running_time').val("");
+								$('#running_time').css("color", "black");
 
-	      						clearTable();
-	      					}
-	      					else if(state == "setup_ok"){
-	      						$('#checkChip').prop("disabled", false);
-	      						$('#setup').prop("disabled", false);
-	      						$('#period').prop("disabled", false);
-	      						$('#deadline').prop("disabled", false);
-	      						$('#start').prop("disabled", false);
-	      						$('#recording').prop("disabled", false);
+								clearTable();
+							}
+							else if(state == "setup_ok"){
+								$('#checkChip').prop("disabled", false);
+								$('#setup').prop("disabled", false);
+								$('#period').prop("disabled", false);
+								$('#deadline').prop("disabled", false);
+								$('#start').prop("disabled", false);
+								$('#recording').prop("disabled", false);
 
-	      						// Setting the checkboxes state
-	      						var chipInfo = jsonData.chipInfo;
-	      						setCheckBoxState(chipInfo);
+								// Setting the checkboxes state
+								var chipInfo = jsonData.chipInfo;
+								setCheckBoxState(chipInfo);
 
-	      						// Setting the setup data
-	      						var freq = jsonData.freq;
-	      						var freqs = freq.split(',');
-	      						var period = jsonData.period;
-	      						var deadline = jsonData.deadline;
-	      						var channel = jsonData.channel;
-	      						var channels = channel.split(',');
-	      						var recordState = jsonData.recordState;
+								// Setting the setup data
+								var freq = jsonData.freq;
+								var freqs = freq.split(',');
+								var period = jsonData.period;
+								var deadline = jsonData.deadline;
+								var channel = jsonData.channel;
+								var channels = channel.split(',');
+								var recordState = jsonData.recordState;
 
-	      						$('#period').val(period);
-	      						$('#period').css("color", "black");
-	      						$('#deadline').val(deadline);
-	      						$('#deadline').css("color", "black");
-	      						$('#running_time').val("");
-	      						$('#running_time').css("color", "black");
+								$('#period').val(period);
+								$('#period').css("color", "black");
+								$('#deadline').val(deadline);
+								$('#deadline').css("color", "black");
+								$('#running_time').val("");
+								$('#running_time').css("color", "black");
 
-	      						for(var i=0; i<5; i++){
-	      							$('#selectFreq' + (i+1)).prop("disabled", false);
-	      							$('#selectFreq' + (i+1) + "_checker").attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded");
-	      						}
+								for(var i=0; i<5; i++){
+									$('#selectFreq' + (i+1)).prop("disabled", false);
+									$('#selectFreq' + (i+1) + "_checker").attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded");
+								}
 
-	      						for(var i=0; i<freqs.length; i++){
-	      							var freqValue = freqs[i].trim();
-	      							var freqIndex = predefinedFreqs.indexOf(freqValue) + 1;
+								for(var i=0; i<freqs.length; i++){
+									var freqValue = freqs[i].trim();
+									var freqIndex = predefinedFreqs.indexOf(freqValue) + 1;
 
-			          				$('#selectFreq' + freqIndex).prop("checked", true);
-			          				$('#selectFreq' + freqIndex + "_checker").attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded is-checked");
-			          			}
+									$('#selectFreq' + freqIndex).prop("checked", true);
+									$('#selectFreq' + freqIndex + "_checker").attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded is-checked");
+								}
 
-	      						for(var i=0; i<channels.length; i++){
-	      							var channelIndex = parseInt(channels[i].trim());
-	      							var checkId = "#selectChannel" + (channelIndex+1);
-	      							var checkCheckerId = "#selectChannel" + (channelIndex+1) + "_checker";
+								for(var i=0; i<channels.length; i++){
+									var channelIndex = parseInt(channels[i].trim());
+									var checkId = "#selectChannel" + (channelIndex+1);
+									var checkCheckerId = "#selectChannel" + (channelIndex+1) + "_checker";
 
-	      							$(checkId).prop("checked", true);
-	      							$(checkCheckerId).attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded is-checked");
-	      						}
+									$(checkId).prop("checked", true);
+									$(checkCheckerId).attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded is-checked");
+								}
 
-	      						// setting the record check box
-	      						if(recordState == "record_on"){
-	      							$('#recording').prop("checked", true);
-	      							$('#recordingChecker').attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded is-checked");
-	      						}
-	      						else{
-	      							$('#recording').prop("checked", false);
-	      							$('#recordingChecker').attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded");
-	      						}
-	      					}
-	      					else if(state == "running"){
-	      						// This running is only once
+								// setting the record check box
+								if(recordState == "record_on"){
+									$('#recording').prop("checked", true);
+									$('#recordingChecker').attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded is-checked");
+								}
+								else{
+									$('#recording').prop("checked", false);
+									$('#recordingChecker').attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded");
+								}
+							}
+							else if(state == "running"){
+								// This running is only once
 								$('#checkChip').prop("disabled", false);
 								$('#setup').prop("disabled", true);
 								$('#period').prop("disabled", true);
@@ -263,42 +263,41 @@
 								$('#start').text("STOP");
 
 								// Setting the checkboxes state
-	      						var chipInfo = jsonData.chipInfo;
-	      						setCheckBoxState(chipInfo);
+								var chipInfo = jsonData.chipInfo;
+								setCheckBoxState(chipInfo);
 
-	      						// Setting the setup data
-	      						var freq = jsonData.freq;
-	      						var freqs = freq.split(',');
-	      						var period = jsonData.period;
-	      						var deadline = jsonData.deadline;
-	      						var channel = jsonData.channel;
-	      						var channels = channel.split(',');
-	      						var recordState = jsonData.recordState;
-	      						var startTime = jsonData.startTime;
-	      						var endTime = jsonData.endTime;
+								// Setting the setup data
+								var freq = jsonData.freq;
+								var freqs = freq.split(',');
+								var period = jsonData.period;
+								var deadline = jsonData.deadline;
+								var channel = jsonData.channel;
+								var channels = channel.split(',');
+								var recordState = jsonData.recordState;
+								var startTime = jsonData.startTime;
+								var endTime = jsonData.endTime;
 
-	      						$('#period').val(period);
-	      						$('#deadline').val(deadline);
-	      						$('#running_time').text(endTime);
+								$('#period').val(period);
+								$('#deadline').val(deadline);
+								$('#running_time').text(endTime);
 
-	      						for(var i=0; i<freqs.length; i++){
-	      							var freqValue = freqs[i].trim();
-	      							var freqIndex = predefinedFreqs.indexOf(freqValue) + 1;
-			          				$('#selectFreq' + freqIndex).prop("disabled", true);
-			          				$('#selectFreq' + freqIndex).prop("checked", true);
-			          				$('#selectFreq' + freqIndex + "_checker").attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded is-disabled is-checked");
-			          			}
+								for(var i=0; i<freqs.length; i++){
+									var freqValue = freqs[i].trim();
+									var freqIndex = predefinedFreqs.indexOf(freqValue) + 1;
+									$('#selectFreq' + freqIndex).prop("disabled", true);
+									$('#selectFreq' + freqIndex).prop("checked", true);
+									$('#selectFreq' + freqIndex + "_checker").attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded is-disabled is-checked");
+								}
 
-	      						for(var i=0; i<channels.length; i++){
-	      							var channelIndex = parseInt(channels[i].trim());
-	      							var checkId = "#selectChannel" + (channelIndex+1);
-	      							$(checkId).prop("checked", true);
-	      						}
+								for(var i=0; i<channels.length; i++){
+									var channelIndex = parseInt(channels[i].trim());
+									var checkId = "#selectChannel" + (channelIndex+1);
+									$(checkId).prop("checked", true);
+								}
 
-	      						for(var i=0; i<8; i++){
-			          				var selectId = "#selectChannel" + (i+1);
+								for(var i=0; i<8; i++){
+									var selectId = "#selectChannel" + (i+1);
 									var selectCheckerId = "#selectChannel" + (i+1) + "_checker";
-
 									var checked = $(selectId).is(':checked');
 
 									$(selectId).prop("disabled", true);
@@ -311,41 +310,41 @@
 								}
 
 								// setting the record check box
-	      						if(recordState == "record_on"){
-	      							$('#recording').prop("checked", true);
-	      							$('#recordingChecker').attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded is-checked");
-	      						}
-	      						else{
-	      							$('#recording').prop("checked", false);
-	      							$('#recordingChecker').attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded");
-	      						}
+								if(recordState == "record_on"){
+									$('#recording').prop("checked", true);
+									$('#recordingChecker').attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded is-checked");
+								}
+								else{
+									$('#recording').prop("checked", false);
+									$('#recordingChecker').attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded");
+								}
 
-	      						setElapsedTime(startTime);
-	      					}
-	      				}
-	      				else{
-	      					if(state == "running"){
-			      				// This running is for elapsed time
-			      				// Calculate elapsed time
-			      				setElapsedTime(startTime);
+								setElapsedTime(startTime);
+							}
+						}
+						else{
+							if(state == "running"){
+								// This running is for elapsed time
+								// Calculate elapsed time
+								setElapsedTime(startTime);
 
-			      				var endTime = jsonData.endTime;
-			      				$('#running_time').text(endTime);
+								var endTime = jsonData.endTime;
+								$('#running_time').text(endTime);
 
-			      				stateChangeCheck = true;
-			      			}
-			      			else if(state == "ready"){
-			      				// reset the variables
-			      				if(stateChangeCheck){
-			      					stateChangeCheck = false;
-			      					initCheck = true;
-			      					$('#start').prop("disabled", true);
+								stateChangeCheck = true;
+							}
+							else if(state == "ready"){
+								// reset the variables
+								if(stateChangeCheck){
+									stateChangeCheck = false;
+									initCheck = true;
+									$('#start').prop("disabled", true);
 									$('#start').text("START");
-			      				}
-			      			}
-	      				}
-	      			}
-      			}
+								}
+							}
+						}
+					}
+				}
 			},
 			complete: function(){
 			}
@@ -542,7 +541,7 @@
 				loadResult(1);
 			},
 			complete: function(){
-      		}
+			}
 		});
 	}
 
@@ -558,58 +557,58 @@
 			commandOperating = true;
 
 			var request = $.ajax({
-          		url: "/command/",
-          		type: "POST",
-          		data: "{\"command\":\"CheckChip\"}",
-          		dataType: "json",
+				url: "/command/",
+				type: "POST",
+				data: "{\"command\":\"CheckChip\"}",
+				dataType: "json",
 
-          		beforeSend: function(){
-          			$('#checkChip').text("Checking..");
-          			$('#checkChip').prop("disabled", true);
-          			$('#setup').prop("disabled", true);
-          			$('#period').prop("disabled", true);
-          			$('#deadline').prop("disabled", true);
+				beforeSend: function(){
+					$('#checkChip').text("Checking..");
+					$('#checkChip').prop("disabled", true);
+					$('#setup').prop("disabled", true);
+					$('#period').prop("disabled", true);
+					$('#deadline').prop("disabled", true);
 
 					if ($('#state').text() != "running"){
-	          			for(var i=1; i<=predefinedFreqs.length; i++){
-	          				$('#selectFreq' + i).prop("disabled", true);
-	          				$('#selectFreq' + i + "_checker").attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-disabled is-upgraded");
-	          			}
+						for(var i=1; i<=predefinedFreqs.length; i++){
+							$('#selectFreq' + i).prop("disabled", true);
+							$('#selectFreq' + i + "_checker").attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-disabled is-upgraded");
+						}
 					}
 
-          			for(var i=1; i<=8; i++){
-        				var checkId = "#selectChannel" + (i);
-        				$(checkId).prop('checked', true);
-        			}
-          		},
-          		success: function(result){
-          			console.log(result);
+					for(var i=1; i<=8; i++){
+						var checkId = "#selectChannel" + (i);
+						$(checkId).prop('checked', true);
+					}
+				},
+				success: function(result){
+					console.log(result);
 					// 180709 PSO - 'running' state에서 checkchip 할 수 있도록 if문 추가
-          			if(result.result){
+					if(result.result){
 						if ($('#state').text() != "running"){
-	          				var data = result.value;
-	          				setCheckBoxState(data);
+							var data = result.value;
+							setCheckBoxState(data);
 
-		          			$('#setup').prop("disabled", false);
-		          			$('#period').prop("disabled", false);
-		          			$('#deadline').prop("disabled", false);
-		          			for(var i=1; i<=predefinedFreqs.length; i++){
-		          				$('#selectFreq' + i).prop("disabled", false);
-		          				$('#selectFreq' + i + "_checker").attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded");
-		          			}
+							$('#setup').prop("disabled", false);
+							$('#period').prop("disabled", false);
+							$('#deadline').prop("disabled", false);
+							for(var i=1; i<=predefinedFreqs.length; i++){
+								$('#selectFreq' + i).prop("disabled", false);
+								$('#selectFreq' + i + "_checker").attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded");
+							}
 						}
-          			}
-          			else{
-	          			alert("Check chip failed : " + result.error);
-          			}
-          		},
-          		complete: function(){
-          			commandOperating = false;
-          			$('#checkChip').text("Check Chip");
-          			$('#checkChip').prop("disabled", false);
-          		}
-        	});
-        });
+					}
+					else{
+						alert("Check chip failed : " + result.error);
+					}
+				},
+				complete: function(){
+					commandOperating = false;
+					$('#checkChip').text("Check Chip");
+					$('#checkChip').prop("disabled", false);
+				}
+			});
+		});
 
 		$('#setup').click(function(){
 			if(commandOperating){
@@ -632,9 +631,7 @@
 				frequencies = frequencies.slice(0, -1);
 			}
 
-			if(!validatePattern($('#period')) ||
-			   !validatePattern($('#deadline')) ||
-				frequencies == ''){
+			if(!validatePattern($('#period')) || !validatePattern($('#deadline')) || frequencies == ''){
 				showValidationErrorDialog();
 				return;
 			}
@@ -649,44 +646,41 @@
 			var checkBoxes = "";
 
 			for(var i=0; i<8; i++){
-        		var checkId = "#selectChannel" + (i+1);
+				var checkId = "#selectChannel" + (i+1);
 
-        		if($(checkId).is(':checked')){
-        			checkBoxes += i + ",";
-        		}
-        	}
+				if($(checkId).is(':checked')){
+					checkBoxes += i + ",";
+				}
+			}
 
-        	checkBoxes = checkBoxes.substring(0, checkBoxes.length-1);
+			checkBoxes = checkBoxes.substring(0, checkBoxes.length-1);
 
 			var request = $.ajax({
-          		url: "/command/",
-          		type: "POST",
-          		data: "{\"command\":\"Setup\", \"freqs\":[ " +
-          				frequencies +  " ], \"period\":\"" + period +
-          				"\", \"deadline\":\"" + deadline + "\", \"channels\":[ " +
-          				checkBoxes + " ] }",
-          		dataType: "json",
+				url: "/command/",
+				type: "POST",
+				data: "{\"command\":\"Setup\", \"freqs\":[ " + frequencies +  " ], \"period\":\"" + period + "\", \"deadline\":\"" + deadline + "\", \"channels\":[ " + checkBoxes + " ] }",
+				dataType: "json",
 
-          		beforeSend: function(){
-          			$('#setup').prop("disabled", true);
-          			$('#checkChip').prop("disabled", true);
-          			$('#period').prop("disabled", true);
-          			$('#deadline').prop("disabled", true);
+				beforeSend: function(){
+					$('#setup').prop("disabled", true);
+					$('#checkChip').prop("disabled", true);
+					$('#period').prop("disabled", true);
+					$('#deadline').prop("disabled", true);
 
-          			for(var i=1; i<=predefinedFreqs.length; ++i){
+					for(var i=1; i<=predefinedFreqs.length; ++i){
 						$('#selectFreq' + i).prop("disabled", true);
 
 						var checked = $('#selectFreq' + i).is(':checked');
 						if(checked){
-	          				$('#selectFreq' + i + "_checker").attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-disabled is-upgraded is-checked");
+							$('#selectFreq' + i + "_checker").attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-disabled is-upgraded is-checked");
 						}
 						else{
 							$('#selectFreq' + i + "_checker").attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-disabled is-upgraded");
 						}
 					}
 
-          			for(var i=0; i<8; i++){
-          				var selectId = "#selectChannel" + (i+1);
+					for(var i=0; i<8; i++){
+						var selectId = "#selectChannel" + (i+1);
 						var selectCheckerId = "#selectChannel" + (i+1) + "_checker";
 
 						var checked = $(selectId).is(':checked');
@@ -699,43 +693,43 @@
 							$(selectCheckerId).attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-disabled is-upgraded");
 						}
 					}
-          		},
-          		success: function(result){
-          			if(result.result){
-          				$('#setup').prop("disabled", false);
-	          			$('#checkChip').prop("disabled", false);
-	          			$('#period').prop("disabled", false);
-	          			$('#deadline').prop("disabled", false);
-	          			$('#start').prop("disabled", false);
-	          			$('#recording').prop("disabled", false);
-	          			$('#recording').prop("checked", false);
-		      			$('#recordingChecker').attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded");
-          			}
-          			else{
-          				$('#setup').prop("disabled", false);
-	          			$('#checkChip').prop("disabled", false);
-	          			$('#period').prop("disabled", false);
-	          			$('#deadline').prop("disabled", false);
-	          			alert("Setup failed : " + result.error);
-          			}
-          		},
-          		complete: function(){
-          			commandOperating = false;
+				},
+				success: function(result){
+					if(result.result){
+						$('#setup').prop("disabled", false);
+						$('#checkChip').prop("disabled", false);
+						$('#period').prop("disabled", false);
+						$('#deadline').prop("disabled", false);
+						$('#start').prop("disabled", false);
+						$('#recording').prop("disabled", false);
+						$('#recording').prop("checked", false);
+						$('#recordingChecker').attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded");
+					}
+					else{
+						$('#setup').prop("disabled", false);
+						$('#checkChip').prop("disabled", false);
+						$('#period').prop("disabled", false);
+						$('#deadline').prop("disabled", false);
+						alert("Setup failed : " + result.error);
+					}
+				},
+				complete: function(){
+					commandOperating = false;
 
-          			for(var i=1; i<=predefinedFreqs.length; ++i){
+					for(var i=1; i<=predefinedFreqs.length; ++i){
 						$('#selectFreq' + i).prop("disabled", false);
 
 						var checked = $('#selectFreq' + i).is(':checked');
 						if(checked){
-	          				$('#selectFreq' + i + "_checker").attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded is-checked");
+							$('#selectFreq' + i + "_checker").attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded is-checked");
 						}
 						else{
 							$('#selectFreq' + i + "_checker").attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded");
 						}
 					}
 
-          			for(var i=0; i<8; i++){
-          				var selectId = "#selectChannel" + (i+1);
+					for(var i=0; i<8; i++){
+						var selectId = "#selectChannel" + (i+1);
 						var selectCheckerId = "#selectChannel" + (i+1) + "_checker";
 
 						var checked = $(selectId).is(':checked');
@@ -748,7 +742,7 @@
 							$(selectCheckerId).attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded");
 						}
 					}
-          		}
+				}
 			});
 		});
 
@@ -766,13 +760,13 @@
 
 			if(buttonText == "START"){
 				var request = $.ajax({
-	          		url: "/command/",
-	          		type: "POST",
-	          		data: "{\"command\":\"start\"}",
-	          		dataType: "json",
+					url: "/command/",
+					type: "POST",
+					data: "{\"command\":\"start\"}",
+					dataType: "json",
 
-	          		beforeSend: function(){
-	          			$('#checkChip').prop("disabled", true);
+					beforeSend: function(){
+						$('#checkChip').prop("disabled", true);
 						$('#setup').prop("disabled", true);
 						$('#frequencies').prop("disabled", true);
 						$('#period').prop("disabled", true);
@@ -780,21 +774,20 @@
 						$('#start').prop("disabled", true);
 
 						for(var i=1; i<=predefinedFreqs.length; i++){
-	          				$('#selectFreq' + i).prop("disabled", true);
-	          				var checked = $('#selectFreq' + i).is(':checked');
+							$('#selectFreq' + i).prop("disabled", true);
+							var checked = $('#selectFreq' + i).is(':checked');
 
-	          				if(checked){
-	          					$('#selectFreq' + i + "_checker").attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-disabled is-upgraded is-checked");
-	          				}
-	          				else{
-	          					$('#selectFreq' + i + "_checker").attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-disabled is-upgraded");
-	          				}
-	          			}
+							if(checked){
+								$('#selectFreq' + i + "_checker").attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-disabled is-upgraded is-checked");
+							}
+							else{
+								$('#selectFreq' + i + "_checker").attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-disabled is-upgraded");
+							}
+						}
 
 						for(var i=0; i<8; i++){
-	          				var selectId = "#selectChannel" + (i+1);
+							var selectId = "#selectChannel" + (i+1);
 							var selectCheckerId = "#selectChannel" + (i+1) + "_checker";
-
 							var checked = $(selectId).is(':checked');
 
 							$(selectId).prop("disabled", true);
@@ -805,43 +798,43 @@
 								$(selectCheckerId).attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-disabled is-upgraded");
 							}
 						}
-	          		},
-	          		success: function(result){
-	          			if(result.result){
-	          				$('#start').prop("disabled", false);
+					},
+					success: function(result){
+						if(result.result){
+							$('#start').prop("disabled", false);
 							$('#start').text("STOP");
-	          			}
-	          			else{
-	          				$('#start').prop("disabled", false);
-	          				alert("Start failed : " + result.error);
-	          			}
+						}
+						else{
+							$('#start').prop("disabled", false);
+							alert("Start failed : " + result.error);
+						}
 						$('#checkChip').prop("disabled", false);
-	          		},
-	          		complete: function(){
-	          			commandOperating = false;
-	          		}
-	        	});
+					},
+					complete: function(){
+						commandOperating = false;
+					}
+				});
 			}
 			else{
 				var request = $.ajax({
-	          		url: "/command/",
-	          		type: "POST",
-	          		data: "{\"command\":\"stop\"}",
-	          		dataType: "json",
+					url: "/command/",
+					type: "POST",
+					data: "{\"command\":\"stop\"}",
+					dataType: "json",
 
-	          		beforeSend: function(){
+					beforeSend: function(){
 						$('#start').prop("disabled", true);
 						$('#checkChip').prop("disabled", true);
 						$('#recording').prop("disabled", true);
-  						$('#recording').prop("checked", false);
+						$('#recording').prop("checked", false);
 						$('#recordingChecker').attr("class", "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-disabled is-upgraded");
 						$('#running_time').val("");
-  						$('#running_time').css("color", "black");
+						$('#running_time').css("color", "black");
 						clearInterval(interval);
-	          		},
-	          		success: function(result){
+					},
+					success: function(result){
 
-	          			if(result.result){
+						if(result.result){
 							// Clear the values
 							initCheck = true;
 							interval = setInterval(checkState, 1000);
@@ -850,14 +843,14 @@
 							$('#start').prop("disabled", false);
 							alert("Stop failed : " + result.error);
 						}
-	          		},
-	          		complete: function(){
-	          			commandOperating = false;
+					},
+					complete: function(){
+						commandOperating = false;
 						$('#checkChip').prop("disabled", false);
-	          		}
-	        	});
+					}
+				});
 			}
-        });
+		});
 
 		$('#recording').click(function(){
 			var checked = $('#recording').is(':checked');
@@ -870,34 +863,34 @@
 			}
 
 			var request = $.ajax({
-          		url: "/state/",
-          		type: "POST",
-          		data: "{\"menu\":0, \"key\":\"RECORD_STATE\",\"value\":\"" + value + "\"}",
-          		dataType: "json",
+				url: "/state/",
+				type: "POST",
+				data: "{\"menu\":0, \"key\":\"RECORD_STATE\",\"value\":\"" + value + "\"}",
+				dataType: "json",
 
-          		beforeSend: function(){
-          		},
-          		success: function(result){
-          		},
-          		complete: function(){
-          		}
-        	});
-        });
+				beforeSend: function(){
+				},
+				success: function(result){
+				},
+				complete: function(){
+				}
+			});
+		});
 
-        $('#tab_2').click(function(){
-        	getResults();
-        });
+		$('#tab_2').click(function(){
+			getResults();
+		});
 
-        // filter selection events
-        for(let i=1; i<=6; i++){
-        	$('#result_list_' + i + '_radio').click(function(){
+		// filter selection events
+		for(let i=1; i<=6; i++){
+			$('#result_list_' + i + '_radio').click(function(){
 				loadResult(i);
 			});
-        }
+		}
 
-        for(let i=1; i<=8; i++){
-        	$('#filterChannel' + i).click(function(){
-        		loadGraph();
+		for(let i=1; i<=8; i++){
+			$('#filterChannel' + i).click(function(){
+				loadGraph();
 			});
 
 			if(i <= predefinedFreqs.length){
@@ -905,80 +898,80 @@
 					loadGraph();
 				});
 			}
-        }
+		}
 
-        $('#filterZ').click(function(){
-        	loadGraph();
-        });
+		$('#filterZ').click(function(){
+			loadGraph();
+		});
 
-        $('#filterR').click(function(){
-        	loadGraph();
-        });
+		$('#filterR').click(function(){
+			loadGraph();
+		});
 
-        $('#filterC').click(function(){
-        	loadGraph();
-        });
+		$('#filterC').click(function(){
+			loadGraph();
+		});
 
-        $('#saveExcel').click(function() {			// # update
-        	// getting the current select data
+		$('#saveExcel').click(function() {			// # update
+			// getting the current select data
 			var index = $('#result_list_selected_index').val();
 
 			// getting dataCounter
 			var counter = $('#result_list_' + index + '_counter').val();
 
-        	window.location.replace("/exportData/excel/?dataCounter=" + counter);
-        });
+			window.location.replace("/exportData/excel/?dataCounter=" + counter);
+		});
 
 		$('#saveText').click(function() {
-        	// getting the current select data
+			// getting the current select data
 			var index = $('#result_list_selected_index').val();
 
 			// getting dataCounter
 			var counter = $('#result_list_' + index + '_counter').val();
 
-        	window.location.replace("/exportData/text/?dataCounter=" + counter);
-        });
- 	});
+			window.location.replace("/exportData/text/?dataCounter=" + counter);
+		});
+	 });
 </script>
 </head>
 
 <dialog id="dialog_validation_error" class="mdl-dialog">
-  <h3 class="mdl-dialog__title">Validation error!</h3>
-  <div class="mdl-dialog__content">
-    <p>
-      Please check frequencies, period, deadline !
-    </p>
-  </div>
-  <div class="mdl-dialog__actions">
-    <button type="button" class="mdl-button">Ok</button>
-  </div>
+	<h3 class="mdl-dialog__title">Validation error!</h3>
+	<div class="mdl-dialog__content">
+		<p>
+			Please check frequencies, period, deadline !
+		</p>
+	</div>
+	<div class="mdl-dialog__actions">
+	<button type="button" class="mdl-button">Ok</button>
+	</div>
 </dialog>
 
 <dialog id="dialog_channel_error" class="mdl-dialog">
-  <h3 class="mdl-dialog__title">Validation error!</h3>
-  <div class="mdl-dialog__content">
-    <p>
-      Please select the channel at least 1.
-    </p>
-  </div>
-  <div class="mdl-dialog__actions">
-    <button type="button" class="mdl-button">Ok</button>
-  </div>
+	<h3 class="mdl-dialog__title">Validation error!</h3>
+	<div class="mdl-dialog__content">
+		<p>
+			Please select the channel at least 1.
+		</p>
+	</div>
+	<div class="mdl-dialog__actions">
+		<button type="button" class="mdl-button">Ok</button>
+	</div>
 </dialog>
 
 <style>
 	.h5_style {
 		font-family: "Roboto","Helvetica","Arial",sans-serif;
-    	margin: 24px 0 16px;
-    	font-weight: 500;
-    	font-size: 14px;
+		margin: 24px 0 16px;
+		font-weight: 500;
+		font-size: 14px;
 	}
 
 	.h5_style_no_margin {
 		font-family: "Roboto","Helvetica","Arial",sans-serif;
-    	margin: 24px 0 16px;
-    	font-weight: 500;
-    	font-size: 14px;
+		margin: 24px 0 16px;
+		font-weight: 500;
+		font-size: 14px;
 		-webkit-margin-after: 0.2em;
 	}
 
@@ -989,638 +982,631 @@
 	}
 
 	.list_item_no_padding {
-	  	padding-top: 5.5px;
-	  	padding-bottom: 5.5px;
-	  	min-height: 32px;
+		padding-top: 5.5px;
+		padding-bottom: 5.5px;
+		min-height: 32px;
 	}
 
 	.list_item_no_padding2 {
-	  	padding-top: 0px;
-	  	padding-bottom: 2px;
-	  	min-height: 16px;
+		padding-top: 0px;
+		padding-bottom: 2px;
+		min-height: 16px;
 	}
 </style>
 
 <!-- Simple header with scrollable tabs. -->
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-  <header class="mdl-layout__header">
-    <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">IMPEDANCE ANALYSIS</span>
-    </div>
-    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-      <a href="#scroll-tab-1" class="mdl-layout__tab is-active" id="tab_1">Setup/Control View</a>
-      <a href="#scroll-tab-2" class="mdl-layout__tab" id="tab_2">Report View</a>
-    </div>
-  </header>
-  <main class="mdl-layout__content">
-    <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
+	<header class="mdl-layout__header">
+		<div class="mdl-layout__header-row">
+			<span class="mdl-layout-title">IMPEDANCE ANALYSIS</span>
+		</div>
+		<div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+			<a href="#scroll-tab-1" class="mdl-layout__tab is-active" id="tab_1">Setup/Control View</a>
+			<a href="#scroll-tab-2" class="mdl-layout__tab" id="tab_2">Report View</a>
+		</div>
+	</header>
 
-      <div style="float: left; margin: 10px; margin-left:20px; border:2px solid #ebebeb; height:550px"></div>
+	<main class="mdl-layout__content">
+		<section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
+			<div style="float: left; margin: 10px; margin-left:20px; border:2px solid #ebebeb; height:550px"></div>
+			<div class="page-content" style="float: left; margin: 0px 5px 5px 10px;">
+				<h5 class="h5_style">&nbsp;&nbsp;CHIP SETUP</h5>
+				<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+					<thead>
+						<tr>
+							<th class="mdl-data-table__cell--non-numeric" width="35px" style="padding-left: 24px;">ch</th>
+							<th width="70px">R</th>
+							<th width="70px">C</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="mdl-data-table__cell--non-numeric">1</td>
+							<td class="list_item_no_padding" id="R1"></td>
+							<td class="list_item_no_padding" id="C1"></td>
+						</tr>
+						<tr>
+							<td class="mdl-data-table__cell--non-numeric">2</td>
+							<td class="list_item_no_padding" id="R2"></td>
+							<td class="list_item_no_padding" id="C2"></td>
+						</tr>
+						<tr>
+							<td class="mdl-data-table__cell--non-numeric">3</td>
+							<td class="list_item_no_padding" id="R3"></td>
+							<td class="list_item_no_padding" id="C3"></td>
+						</tr>
+						<tr>
+							<td class="mdl-data-table__cell--non-numeric">4</td>
+							<td class="list_item_no_padding" id="R4"></td>
+							<td class="list_item_no_padding" id="C4"></td>
+						</tr>
+						<tr>
+							<td class="mdl-data-table__cell--non-numeric">5</td>
+							<td class="list_item_no_padding" id="R5"></td>
+							<td class="list_item_no_padding" id="C5"></td>
+						</tr>
+						<tr>
+							<td class="mdl-data-table__cell--non-numeric">6</td>
+							<td class="list_item_no_padding" id="R6"></td>
+							<td class="list_item_no_padding" id="C6"></td>
+						</tr>
+						<tr>
+							<td class="mdl-data-table__cell--non-numeric">7</td>
+							<td class="list_item_no_padding" id="R7"></td>
+							<td class="list_item_no_padding" id="C7"></td>
+						</tr>
+						<tr>
+							<td class="mdl-data-table__cell--non-numeric">8</td>
+							<td class="list_item_no_padding" id="R8"></td>
+							<td class="list_item_no_padding" id="C8"></td>
+						</tr>
+					</tbody>
+				</table>
 
-      <div class="page-content" style="float: left; margin: 0px 5px 5px 10px;">
-      	<h5 class="h5_style">&nbsp;&nbsp;CHIP SETUP</h5>
-      	<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-		  <thead>
-		    <tr>
-		      <th class="mdl-data-table__cell--non-numeric" width="35px" style="padding-left: 24px;">ch</th>
-		      <th width="70px">R</th>
-		      <th width="70px">C</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <tr>
-		      <td class="mdl-data-table__cell--non-numeric">1</td>
-		      <td class="list_item_no_padding" id="R1"></td>
-		      <td class="list_item_no_padding" id="C1"></td>
-		    </tr>
-		    <tr>
-		      <td class="mdl-data-table__cell--non-numeric">2</td>
-		      <td class="list_item_no_padding" id="R2"></td>
-		      <td class="list_item_no_padding" id="C2"></td>
-		    </tr>
-		    <tr>
-		      <td class="mdl-data-table__cell--non-numeric">3</td>
-		      <td class="list_item_no_padding" id="R3"></td>
-		      <td class="list_item_no_padding" id="C3"></td>
-		    </tr>
-		    <tr>
-		      <td class="mdl-data-table__cell--non-numeric">4</td>
-		      <td class="list_item_no_padding" id="R4"></td>
-		      <td class="list_item_no_padding" id="C4"></td>
-		    </tr>
-		    <tr>
-		      <td class="mdl-data-table__cell--non-numeric">5</td>
-		      <td class="list_item_no_padding" id="R5"></td>
-		      <td class="list_item_no_padding" id="C5"></td>
-		    </tr>
-		    <tr>
-		      <td class="mdl-data-table__cell--non-numeric">6</td>
-		      <td class="list_item_no_padding" id="R6"></td>
-		      <td class="list_item_no_padding" id="C6"></td>
-		    </tr>
-		    <tr>
-		      <td class="mdl-data-table__cell--non-numeric">7</td>
-		      <td class="list_item_no_padding" id="R7"></td>
-		      <td class="list_item_no_padding" id="C7"></td>
-		    </tr>
-		    <tr>
-		      <td class="mdl-data-table__cell--non-numeric">8</td>
-		      <td class="list_item_no_padding" id="R8"></td>
-		      <td class="list_item_no_padding" id="C8"></td>
-		    </tr>
-		  </tbody>
-		</table>
+				<button id="checkChip" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="margin: 30px 20px 0px 40px" disabled>
+					Check chip
+				</button>
+			</div>
 
-		<button id="checkChip" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="margin: 30px 20px 0px 40px" disabled>
-		  Check chip
-		</button>
-      </div>
+			<div style="float: left; margin: 10px; margin-left:20px; border:2px solid #ebebeb; height:550px"></div>
 
-      <div style="float: left; margin: 10px; margin-left:20px; border:2px solid #ebebeb; height:550px"></div>
+			<style>
+				.list-control-style {
+					width: 170px;
+				}
 
-	  <style>
-	    .list-control-style {
-	    width: 170px;
-	  }
+				.list-radio-style {
+					display: inline;
+				}
 
-	  .list-radio-style {
-	    display: inline;
-	  }
+				.material-icons.redled { color: #FF0000; }
+				.material-icons.blueled { color: #0000FF; }
+			</style>
 
-	  .material-icons.redled { color: #FF0000; }
- 	  .material-icons.blueled { color: #0000FF; }
-	  </style>
+			<div class="page-content" style="float: left; margin: 0px 5px 5px 10px;">
+				<h5 class="h5_style" style="margin-left: 5px;">PARAMETER SETUP</h5>
+				<ul class="list-control-style mdl-list">
+					<li class="mdl-list__item list_item_no_padding">
+						<span class="mdl-list__item-primary-content">
+						<i id="valid1_icon" class="material-icons  mdl-list__item-icon">remove</i>
+							ch 1
+						</span>
+						<span class="mdl-list__item-secondary-action">
+							<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectChannel1" id="selectChannel1_checker">
+								<input type="checkbox" id="selectChannel1" class="mdl-checkbox__input" disabled />
+							</label>
+						</span>
+					</li>
+					<li class="mdl-list__item list_item_no_padding">
+						<span class="mdl-list__item-primary-content">
+							<i id="valid2_icon" class="material-icons  mdl-list__item-icon">remove</i>
+							ch 2
+						</span>
+						<span class="mdl-list__item-secondary-action">
+							<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectChannel2" id="selectChannel2_checker">
+							<input type="checkbox" id="selectChannel2" class="mdl-checkbox__input" disabled />
+							</label>
+						</span>
+					</li>
+					<li class="mdl-list__item list_item_no_padding">
+						<span class="mdl-list__item-primary-content">
+							<i id="valid3_icon" class="material-icons  mdl-list__item-icon">remove</i>
+							ch 3
+						</span>
+						<span class="mdl-list__item-secondary-action">
+							<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectChannel3" id="selectChannel3_checker">
+							<input type="checkbox" id="selectChannel3" class="mdl-checkbox__input" disabled />
+							</label>
+						</span>
+					</li>
+					<li class="mdl-list__item list_item_no_padding">
+						<span class="mdl-list__item-primary-content">
+							<i id="valid4_icon" class="material-icons  mdl-list__item-icon">remove</i>
+							ch 4
+						</span>
+						<span class="mdl-list__item-secondary-action">
+							<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectChannel4" id="selectChannel4_checker">
+								<input type="checkbox" id="selectChannel4" class="mdl-checkbox__input" disabled />
+							</label>
+						</span>
+					</li>
+					<li class="mdl-list__item list_item_no_padding">
+						<span class="mdl-list__item-primary-content">
+							<i id="valid5_icon" class="material-icons  mdl-list__item-icon">remove</i>
+							ch 5
+						</span>
+						<span class="mdl-list__item-secondary-action">
+							<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectChannel5" id="selectChannel5_checker">
+								<input type="checkbox" id="selectChannel5" class="mdl-checkbox__input" disabled />
+							</label>
+						</span>
+					</li>
+					<li class="mdl-list__item list_item_no_padding">
+						<span class="mdl-list__item-primary-content">
+							<i id="valid6_icon" class="material-icons  mdl-list__item-icon">remove</i>
+							ch 6
+						</span>
+						<span class="mdl-list__item-secondary-action">
+							<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectChannel6" id="selectChannel6_checker">
+								<input type="checkbox" id="selectChannel6" class="mdl-checkbox__input" disabled />
+							</label>
+						</span>
+					</li>
+					<li class="mdl-list__item list_item_no_padding">
+						<span class="mdl-list__item-primary-content">
+							<i id="valid7_icon" class="material-icons  mdl-list__item-icon">remove</i>
+							ch 7
+						</span>
+						<span class="mdl-list__item-secondary-action">
+							<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectChannel7" id="selectChannel7_checker">
+								<input type="checkbox" id="selectChannel7" class="mdl-checkbox__input" disabled />
+							</label>
+						</span>
+					</li>
+					<li class="mdl-list__item list_item_no_padding">
+						<span class="mdl-list__item-primary-content">
+							<i id="valid8_icon" class="material-icons  mdl-list__item-icon">remove</i>
+							ch 8
+						</span>
+						<span class="mdl-list__item-secondary-action">
+							<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectChannel8" id="selectChannel8_checker">
+								<input type="checkbox" id="selectChannel8" class="mdl-checkbox__input" disabled />
+							</label>
+						</span>
+					</li>
+				</ul>
 
-      <div class="page-content" style="float: left; margin: 0px 5px 5px 10px;">
-			<h5 class="h5_style" style="margin-left: 5px;">PARAMETER SETUP</h5>
-			<ul class="list-control-style mdl-list">
-			  <li class="mdl-list__item list_item_no_padding">
-			    <span class="mdl-list__item-primary-content">
-			      <i id="valid1_icon" class="material-icons  mdl-list__item-icon">remove</i>
-			      ch 1
-			    </span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectChannel1" id="selectChannel1_checker">
-			        <input type="checkbox" id="selectChannel1" class="mdl-checkbox__input" disabled />
-			      </label>
-			    </span>
-			  </li>
-			  <li class="mdl-list__item list_item_no_padding">
-			    <span class="mdl-list__item-primary-content">
-			      <i id="valid2_icon" class="material-icons  mdl-list__item-icon">remove</i>
-			      ch 2
-			    </span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectChannel2" id="selectChannel2_checker">
-			        <input type="checkbox" id="selectChannel2" class="mdl-checkbox__input" disabled />
-			      </label>
-			    </span>
-			  </li>
-			  <li class="mdl-list__item list_item_no_padding">
-			    <span class="mdl-list__item-primary-content">
-			      <i id="valid3_icon" class="material-icons  mdl-list__item-icon">remove</i>
-			      ch 3
-			    </span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectChannel3" id="selectChannel3_checker">
-			        <input type="checkbox" id="selectChannel3" class="mdl-checkbox__input" disabled />
-			      </label>
-			    </span>
-			  </li>
-			  <li class="mdl-list__item list_item_no_padding">
-			    <span class="mdl-list__item-primary-content">
-			      <i id="valid4_icon" class="material-icons  mdl-list__item-icon">remove</i>
-			      ch 4
-			    </span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectChannel4" id="selectChannel4_checker">
-			        <input type="checkbox" id="selectChannel4" class="mdl-checkbox__input" disabled />
-			      </label>
-			    </span>
-			  </li>
-			  <li class="mdl-list__item list_item_no_padding">
-			    <span class="mdl-list__item-primary-content">
-			      <i id="valid5_icon" class="material-icons  mdl-list__item-icon">remove</i>
-			      ch 5
-			    </span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectChannel5" id="selectChannel5_checker">
-			        <input type="checkbox" id="selectChannel5" class="mdl-checkbox__input" disabled />
-			      </label>
-			    </span>
-			  </li>
-			  <li class="mdl-list__item list_item_no_padding">
-			    <span class="mdl-list__item-primary-content">
-			      <i id="valid6_icon" class="material-icons  mdl-list__item-icon">remove</i>
-			      ch 6
-			    </span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectChannel6" id="selectChannel6_checker">
-			        <input type="checkbox" id="selectChannel6" class="mdl-checkbox__input" disabled />
-			      </label>
-			    </span>
-			  </li>
-			  <li class="mdl-list__item list_item_no_padding">
-			    <span class="mdl-list__item-primary-content">
-			      <i id="valid7_icon" class="material-icons  mdl-list__item-icon">remove</i>
-			      ch 7
-			    </span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectChannel7" id="selectChannel7_checker">
-			        <input type="checkbox" id="selectChannel7" class="mdl-checkbox__input" disabled />
-			      </label>
-			    </span>
-			  </li>
-			  <li class="mdl-list__item list_item_no_padding">
-			    <span class="mdl-list__item-primary-content">
-			      <i id="valid8_icon" class="material-icons  mdl-list__item-icon">remove</i>
-			      ch 8
-			    </span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectChannel8" id="selectChannel8_checker">
-			        <input type="checkbox" id="selectChannel8" class="mdl-checkbox__input" disabled />
-			      </label>
-			    </span>
-			  </li>
+			</div>
+
+			<div class="page-content" style="float: left;">
+				<h5>&nbsp;&nbsp;&nbsp;</h5>
+				<!-- CONTROL VIEW의 주파수 체크박스 -->
+				<ul class="list-control-style mdl-list">
+					<li class="mdl-list__item">
+						<span class="mdl-list__item-primary-content">
+							freqs
+						</span>
+						<span class="mdl-list__item-secondary-action" style="margin-left: 20px;">
+							<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectFreq1" id="selectFreq1_checker">
+								<input type="checkbox" id="selectFreq1" class="mdl-checkbox__input" disabled/>
+								&nbsp;4000
+							</label>
+							<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectFreq2" id="selectFreq2_checker">
+								<input type="checkbox" id="selectFreq2" class="mdl-checkbox__input" disabled/>
+								&nbsp;8000
+							</label>
+							<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectFreq3" id="selectFreq3_checker">
+								<input type="checkbox" id="selectFreq3" class="mdl-checkbox__input" disabled/>
+								&nbsp;16000
+							</label>
+							<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectFreq4" id="selectFreq4_checker">
+								<input type="checkbox" id="selectFreq4" class="mdl-checkbox__input" disabled/>
+								&nbsp;32000
+							</label>
+							<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectFreq5" id="selectFreq5_checker">
+								<input type="checkbox" id="selectFreq5" class="mdl-checkbox__input" disabled/>
+								&nbsp;64000
+							</label>
+							<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectFreq6" id="selectFreq6_checker">
+								<input type="checkbox" id="selectFreq6" class="mdl-checkbox__input" disabled/>
+								&nbsp;128000
+							</label>
+						</span>
+					</li>
+					<li class="mdl-list__item">
+						<span class="mdl-list__item-primary-content"  style="line-height : 1.2;">
+							&nbsp;&nbsp;period (minutes)
+						</span>
+						<span class="mdl-list__item-secondary-action">
+							<div class="mdl-textfield mdl-js-textfield" style="margin-left: 30px;">
+								<input class="mdl-textfield__input" type="text" required="required" pattern="-?[0-9]*(\.[0-9]+)?" id="period" style="border-bottom: 2px solid rgba(0,0,0,.48); padding-left: 16px;" disabled >
+								<span class="mdl-textfield__error">Input is not a number!</span>
+							</div>
+						</span>
+					</li>
+					<li class="mdl-list__item">
+						<span class="mdl-list__item-primary-content" style="line-height : 1.2;">
+							deadline  &nbsp;(days)
+						</span>
+						<span class="mdl-list__item-secondary-action">
+							<div class="mdl-textfield mdl-js-textfield" style="margin-left: 30px;">
+								<input class="mdl-textfield__input" type="text" required="required" pattern="-?[0-9]*(\.[0-9]+)?" id="deadline" style="border-bottom: 2px solid rgba(0,0,0,.48); padding-left: 20px;" disabled >
+								<span class="mdl-textfield__error">Input is a days!</span>
+							</div>
+						</span>
+					</li>
+					<li class="mdl-list__item">
+						<span class="mdl-list__item-primary-content">
+							<button id="setup" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="margin-left: 40px;" disabled>
+								&nbsp;&nbsp;Setup&nbsp;&nbsp;
+							</button>
+						</span>
+					</li>
+				</ul>
+			</div>
+
+			<div style="float: left; margin: 10px; margin-left:20px; border:2px solid #ebebeb; height:550px"></div>
+
+			<div class="page-content" style="float: left; margin: 0px 5px 5px 10px;">
+				<h5 class="h5_style" style="margin-left: 5px;">DEVICE CONTROL</h5>
+				<ul class="list-control-style mdl-list" style="width: 260px;">
+					<li class="mdl-list__item">
+						<span class="mdl-list__item-primary-content">
+							State :
+						</span>
+						<span class="mdl-list__item-secondary-action">
+							<i id="state" style="font-size:14px;"></i>
+						</span>
+					</li>
+					<li class="mdl-list__item">
+						<span class="mdl-list__item-primary-content">
+							End Date :
+						</span>
+						<span class="mdl-list__item-secondary-action">
+							<i id="running_time" style="font-size:12px;"></i>
+						</span>
+					</li>
+					<li class="mdl-list__item">
+						<span class="mdl-list__item-primary-content">
+							Elapsed Time :
+						</span>
+						<span class="mdl-list__item-secondary-action">
+							<i id="elapsed_time" style="font-size:14px;"></i>
+						</span>
+					</li>
+					<li class="mdl-list__item">
+						<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="recording" style="margin-left: 20px;" id="recordingChecker">
+							<input type="checkbox" id="recording" class="mdl-checkbox__input" disabled>
+							<span class="mdl-checkbox__label">Record</span>
+						</label>
+						<span class="mdl-list__item-primary-content">
+							<button id="start" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="margin-right: 20px;" disabled>START</button>
+						</span>
+					</li>
+				</ul>
+			</div>
+
+			<div style="float: left; margin: 10px; margin-left:20px; border:2px solid #ebebeb; height:550px"></div>
+		</section>
+		<section class="mdl-layout__tab-panel" id="scroll-tab-2">
+			<div class="page-content" style="float: left; margin: 0px 5px 5px 10px;">
+			<h5 class="h5_style_no_margin">&nbsp;&nbsp;HISTORY</h5>
+
+			<style>
+				.demo-list-control {
+					width: 260px;
+				}
+				.demo-list-radio {
+					display: inline;
+				}
+				.hr_no_padding {
+					-webkit-margin-before: 0.5em;
+					-webkit-margin-after: 0.5em;
+				}
+
+				.ul_no_padding {
+					-webkit-padding-start: 0px;
+					-webkit-margin-before: 0em;
+					-webkit-margin-after: 0em;
+				}
+			</style>
+
+			<ul class="demo-list-control mdl-list">
+				<!-- 170220 YJ(mauver) remove change the one colume (mdl-list__item mdl-list__item"-"-two-line) -->
+				<li class="mdl-list__item mdl-list__item2" id="result_list_1" style="visibility: hidden;">
+					<span class="mdl-list__item-primary-content">
+						<i class="material-icons  mdl-list__item-avatar" id="result_list_1_icon">done</i>
+						<span id="result_list_1_title"></span>
+					</span>
+					<span class="mdl-list__item-secondary-action">
+						<label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="result_list_1_radio" id="result_list_1_radio_icon">
+							<input type="radio" id="result_list_1_radio" class="mdl-radio__button" name="options" value="0" />
+						</label>
+					</span>
+					<input id="result_list_1_counter" type="hidden" />
+					<input id="result_list_1_freqs" type="hidden" />
+					<input id="result_list_1_channels" type="hidden" />
+				</li>
+				<hr class="hr_no_padding" id="result_list_1_separator" style="visibility: hidden;">
+				<li class="mdl-list__item mdl-list__item2" id="result_list_2" style="visibility: hidden;">
+					<span class="mdl-list__item-primary-content">
+						<i class="material-icons  mdl-list__item-avatar" id="result_list_2_icon">done</i>
+						<span id="result_list_2_title"></span>
+					</span>
+					<span class="mdl-list__item-secondary-action">
+						<label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="result_list_2_radio" id="result_list_2_radio_icon">
+							<input type="radio" id="result_list_2_radio" class="mdl-radio__button" name="options" value="0" />
+						</label>
+					</span>
+					<input id="result_list_2_counter" type="hidden" />
+					<input id="result_list_2_freqs" type="hidden" />
+					<input id="result_list_2_channels" type="hidden" />
+				</li>
+				<hr class="hr_no_padding" id="result_list_2_separator" style="visibility: hidden;">
+				<li class="mdl-list__item mdl-list__item2" id="result_list_3" style="visibility: hidden;">
+					<span class="mdl-list__item-primary-content">
+						<i class="material-icons  mdl-list__item-avatar" id="result_list_3_icon">done</i>
+						<span id="result_list_3_title"></span>
+					</span>
+					<span class="mdl-list__item-secondary-action">
+						<label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="result_list_3_radio" id="result_list_3_radio_icon">
+							<input type="radio" id="result_list_3_radio" class="mdl-radio__button" name="options" value="0" />
+						</label>
+					</span>
+					<input id="result_list_3_counter" type="hidden" />
+					<input id="result_list_3_freqs" type="hidden" />
+					<input id="result_list_3_channels" type="hidden" />
+				</li>
+				<hr class="hr_no_padding" id="result_list_3_separator" style="visibility: hidden;">
+				<li class="mdl-list__item mdl-list__item2" id="result_list_4" style="visibility: hidden;">
+					<span class="mdl-list__item-primary-content">
+						<i class="material-icons  mdl-list__item-avatar" id="result_list_4_icon">done</i>
+						<span id="result_list_4_title"></span>
+					</span>
+					<span class="mdl-list__item-secondary-action">
+						<label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="result_list_4_radio" id="result_list_4_radio_icon">
+							<input type="radio" id="result_list_4_radio" class="mdl-radio__button" name="options" value="0" />
+						</label>
+					</span>
+					<input id="result_list_4_counter" type="hidden" />
+					<input id="result_list_4_freqs" type="hidden" />
+					<input id="result_list_4_channels" type="hidden" />
+				</li>
+				<hr class="hr_no_padding" id="result_list_4_separator" style="visibility: hidden;">
+				<!--
+				<li class="mdl-list__item mdl-list__item2" id="result_list_5" style="visibility: hidden;">
+					<span class="mdl-list__item-primary-content">
+						<i class="material-icons  mdl-list__item-avatar" id="result_list_5_icon">done</i>
+						<span id="result_list_5_title"></span>
+					</span>
+					<span class="mdl-list__item-secondary-action">
+						<label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="result_list_5_radio" id="result_list_5_radio_icon">
+							<input type="radio" id="result_list_5_radio" class="mdl-radio__button" name="options" value="0" />
+						</label>
+					</span>
+					<input id="result_list_5_counter" type="hidden" />
+					<input id="result_list_5_freqs" type="hidden" />
+					<input id="result_list_5_channels" type="hidden" />
+				</li>
+				<hr class="hr_no_padding" id="result_list_5_separator" style="visibility: hidden;">
+				<li class="mdl-list__item mdl-list__item2" id="result_list_6" style="visibility: hidden;">
+					<span class="mdl-list__item-primary-content">
+						<i class="material-icons  mdl-list__item-avatar" id="result_list_6_icon">done</i>
+						<span id="result_list_6_title"></span>
+					</span>
+					<span class="mdl-list__item-secondary-action">
+						<label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="result_list_6_radio" id="result_list_6_radio_icon">
+							<input type="radio" id="result_list_6_radio" class="mdl-radio__button" name="options" value="0" />
+						</label>
+					</span>
+					<input id="result_list_6_counter" type="hidden" />
+					<input id="result_list_6_freqs" type="hidden" />
+					<input id="result_list_6_channels" type="hidden" />
+				</li>
+				<hr class="hr_no_padding" id="result_list_6_separator" style="visibility: hidden;">
+				-->
+				<input id="result_list_selected_index" type="hidden" />
 			</ul>
+		</div>
 
-	  </div>
+		<div style="float: left; margin: 10px; margin-left:20px; border:2px solid #ebebeb; height:250px"></div>
+			<style>
+				.filter-list-control-style {
+					width: 120px;
+				}
 
-	  <div class="page-content" style="float: left;">
-	  	<h5>&nbsp;&nbsp;&nbsp;</h5>
-		<!-- CONTROL VIEW의 주파수 체크박스 -->
-	  	<ul class="list-control-style mdl-list">
-			  <li class="mdl-list__item">
-			    <span class="mdl-list__item-primary-content">
-			      freqs
-			    </span>
-			    <span class="mdl-list__item-secondary-action" style="margin-left: 20px;">
-				  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectFreq1" id="selectFreq1_checker">
-			        <input type="checkbox" id="selectFreq1" class="mdl-checkbox__input" disabled/>
-			        	&nbsp;4000
-			      </label>
-			      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectFreq2" id="selectFreq2_checker">
-			        <input type="checkbox" id="selectFreq2" class="mdl-checkbox__input" disabled/>
-			        	&nbsp;8000
-			      </label>
-			      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectFreq3" id="selectFreq3_checker">
-			        <input type="checkbox" id="selectFreq3" class="mdl-checkbox__input" disabled/>
-			        	&nbsp;16000
-			      </label>
-			      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectFreq4" id="selectFreq4_checker">
-			        <input type="checkbox" id="selectFreq4" class="mdl-checkbox__input" disabled/>
-			        	&nbsp;32000
-			      </label>
-				  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectFreq5" id="selectFreq5_checker">
-			        <input type="checkbox" id="selectFreq5" class="mdl-checkbox__input" disabled/>
-			        	&nbsp;64000
-			      </label>
-				  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="selectFreq6" id="selectFreq6_checker">
-			        <input type="checkbox" id="selectFreq6" class="mdl-checkbox__input" disabled/>
-			        	&nbsp;128000
-			      </label>
-			    </span>
-			  </li>
-			  <li class="mdl-list__item">
-			    <span class="mdl-list__item-primary-content"  style="line-height : 1.2;">
-			      &nbsp;&nbsp;period (minutes)
-			    </span>
-			    <span class="mdl-list__item-secondary-action">
-			      <div class="mdl-textfield mdl-js-textfield" style="margin-left: 30px;">
-				    <input class="mdl-textfield__input" type="text" required="required" pattern="-?[0-9]*(\.[0-9]+)?" id="period" style="border-bottom: 2px solid rgba(0,0,0,.48); padding-left: 16px;" disabled >
-				    <span class="mdl-textfield__error">Input is not a number!</span>
-				  </div>
-			    </span>
-			  </li>
-			  <li class="mdl-list__item">
-			    <span class="mdl-list__item-primary-content" style="line-height : 1.2;">
-			      deadline  &nbsp;(days)
-			    </span>
-			    <span class="mdl-list__item-secondary-action">
-			      <div class="mdl-textfield mdl-js-textfield" style="margin-left: 30px;">
-				    <input class="mdl-textfield__input" type="text" required="required" pattern="-?[0-9]*(\.[0-9]+)?" id="deadline" style="border-bottom: 2px solid rgba(0,0,0,.48); padding-left: 20px;" disabled >
-				    <span class="mdl-textfield__error">Input is a days!</span>
-				  </div>
-			    </span>
-			  </li>
-			  <li class="mdl-list__item">
-			    <span class="mdl-list__item-primary-content">
-			    	<button id="setup" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="margin-left: 40px;" disabled>
-					  &nbsp;&nbsp;Setup&nbsp;&nbsp;
-					</button>
-			    </span>
-			  </li>
-			</ul>
-	  </div>
+				.filter-list-control-style2 {
+					width: 90px;
+				}
 
-	  <div style="float: left; margin: 10px; margin-left:20px; border:2px solid #ebebeb; height:550px"></div>
+				.material-icons.redled { color: #FF0000; }
+				.material-icons.blueled { color: #0000FF; }
 
-	  <div class="page-content" style="float: left; margin: 0px 5px 5px 10px;">
-	  	<h5 class="h5_style" style="margin-left: 5px;">DEVICE CONTROL</h5>
-	  	<ul class="list-control-style mdl-list" style="width: 260px;">
-			  <li class="mdl-list__item">
-			    <span class="mdl-list__item-primary-content">
-			      State :
-			    </span>
-			    <span class="mdl-list__item-secondary-action">
-			      <i id="state" style="font-size:14px;"></i>
-		    	</span>
-			  </li>
-			  <li class="mdl-list__item">
-			    <span class="mdl-list__item-primary-content">
-			      End Date :
-			    </span>
-			    <span class="mdl-list__item-secondary-action">
-			      <i id="running_time" style="font-size:12px;"></i>
+				.list_item_no_padding {
+					padding-top: 5.5px;
+					padding-bottom: 5.5px;
+					min-height: 32px;
+				}
+			</style>
 
-			    </span>
-			  </li>
-			  <li class="mdl-list__item">
-			    <span class="mdl-list__item-primary-content">
-			      Elapsed Time :
-			    </span>
-			    <span class="mdl-list__item-secondary-action">
-			      <i id="elapsed_time" style="font-size:14px;"></i>
-
-			    </span>
-			  </li>
-			  <li class="mdl-list__item">
-			  	<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="recording" style="margin-left: 20px;" id="recordingChecker">
-			  		<input type="checkbox" id="recording" class="mdl-checkbox__input" disabled>
-			  		<span class="mdl-checkbox__label">Record</span>
-		  		</label>
-			    <span class="mdl-list__item-primary-content">
-			    	<button id="start" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="margin-right: 20px;" disabled>START</button>
-			    </span>
-			  </li>
-			</ul>
-	  </div>
-
-	  <div style="float: left; margin: 10px; margin-left:20px; border:2px solid #ebebeb; height:550px"></div>
-    </section>
-    <section class="mdl-layout__tab-panel" id="scroll-tab-2">
-      <div class="page-content" style="float: left; margin: 0px 5px 5px 10px;">
-      	<h5 class="h5_style_no_margin">&nbsp;&nbsp;HISTORY</h5>
-
-		<style>
-		.demo-list-control {
-		  width: 260px;
-		}
-
-		.demo-list-radio {
-		  display: inline;
-		}
-
-		.hr_no_padding {
-			-webkit-margin-before: 0.5em;
-			-webkit-margin-after: 0.5em;
-		}
-
-		.ul_no_padding {
-			-webkit-padding-start: 0px;
-			-webkit-margin-before: 0em;
-			-webkit-margin-after: 0em;
-		}
-
-		</style>
-
-		<ul class="demo-list-control mdl-list">
-			<!-- 170220 YJ(mauver) remove change the one colume (mdl-list__item mdl-list__item"-"-two-line) -->
-		  <li class="mdl-list__item mdl-list__item2" id="result_list_1" style="visibility: hidden;">
-		    <span class="mdl-list__item-primary-content">
-		      <i class="material-icons  mdl-list__item-avatar" id="result_list_1_icon">done</i>
-		      <span id="result_list_1_title"></span>
-		    </span>
-		    <span class="mdl-list__item-secondary-action">
-		      <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="result_list_1_radio" id="result_list_1_radio_icon">
-		        <input type="radio" id="result_list_1_radio" class="mdl-radio__button" name="options" value="0" />
-		      </label>
-		    </span>
-		    <input id="result_list_1_counter" type="hidden" />
-		    <input id="result_list_1_freqs" type="hidden" />
-		    <input id="result_list_1_channels" type="hidden" />
-		  </li>
-		  <hr class="hr_no_padding" id="result_list_1_separator" style="visibility: hidden;">
-		  <li class="mdl-list__item mdl-list__item2" id="result_list_2" style="visibility: hidden;">
-		    <span class="mdl-list__item-primary-content">
-		      <i class="material-icons  mdl-list__item-avatar" id="result_list_2_icon">done</i>
-		      <span id="result_list_2_title"></span>
-		    </span>
-		    <span class="mdl-list__item-secondary-action">
-		      <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="result_list_2_radio" id="result_list_2_radio_icon">
-		        <input type="radio" id="result_list_2_radio" class="mdl-radio__button" name="options" value="0" />
-		      </label>
-		    </span>
-		    <input id="result_list_2_counter" type="hidden" />
-		    <input id="result_list_2_freqs" type="hidden" />
-		    <input id="result_list_2_channels" type="hidden" />
-		  </li>
-		  <hr class="hr_no_padding" id="result_list_2_separator" style="visibility: hidden;">
-		  <li class="mdl-list__item mdl-list__item2" id="result_list_3" style="visibility: hidden;">
-		    <span class="mdl-list__item-primary-content">
-		      <i class="material-icons  mdl-list__item-avatar" id="result_list_3_icon">done</i>
-		      <span id="result_list_3_title"></span>
-		    </span>
-		    <span class="mdl-list__item-secondary-action">
-		      <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="result_list_3_radio" id="result_list_3_radio_icon">
-		        <input type="radio" id="result_list_3_radio" class="mdl-radio__button" name="options" value="0" />
-		      </label>
-		    </span>
-		    <input id="result_list_3_counter" type="hidden" />
-		    <input id="result_list_3_freqs" type="hidden" />
-		    <input id="result_list_3_channels" type="hidden" />
-		  </li>
-		  <hr class="hr_no_padding" id="result_list_3_separator" style="visibility: hidden;">
-		  <li class="mdl-list__item mdl-list__item2" id="result_list_4" style="visibility: hidden;">
-		    <span class="mdl-list__item-primary-content">
-		      <i class="material-icons  mdl-list__item-avatar" id="result_list_4_icon">done</i>
-		      <span id="result_list_4_title"></span>
-		    </span>
-		    <span class="mdl-list__item-secondary-action">
-		      <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="result_list_4_radio" id="result_list_4_radio_icon">
-		        <input type="radio" id="result_list_4_radio" class="mdl-radio__button" name="options" value="0" />
-		      </label>
-		    </span>
-		    <input id="result_list_4_counter" type="hidden" />
-		    <input id="result_list_4_freqs" type="hidden" />
-		    <input id="result_list_4_channels" type="hidden" />
-		  </li>
-		  <hr class="hr_no_padding" id="result_list_4_separator" style="visibility: hidden;">
-		  <!--
-		  <li class="mdl-list__item mdl-list__item2" id="result_list_5" style="visibility: hidden;">
-		    <span class="mdl-list__item-primary-content">
-		      <i class="material-icons  mdl-list__item-avatar" id="result_list_5_icon">done</i>
-		      <span id="result_list_5_title"></span>
-		    </span>
-		    <span class="mdl-list__item-secondary-action">
-		      <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="result_list_5_radio" id="result_list_5_radio_icon">
-		        <input type="radio" id="result_list_5_radio" class="mdl-radio__button" name="options" value="0" />
-		      </label>
-		    </span>
-		    <input id="result_list_5_counter" type="hidden" />
-		    <input id="result_list_5_freqs" type="hidden" />
-		    <input id="result_list_5_channels" type="hidden" />
-		  </li>
-		  <hr class="hr_no_padding" id="result_list_5_separator" style="visibility: hidden;">
-		  <li class="mdl-list__item mdl-list__item2" id="result_list_6" style="visibility: hidden;">
-		    <span class="mdl-list__item-primary-content">
-		      <i class="material-icons  mdl-list__item-avatar" id="result_list_6_icon">done</i>
-		      <span id="result_list_6_title"></span>
-		    </span>
-		    <span class="mdl-list__item-secondary-action">
-		      <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="result_list_6_radio" id="result_list_6_radio_icon">
-		        <input type="radio" id="result_list_6_radio" class="mdl-radio__button" name="options" value="0" />
-		      </label>
-		    </span>
-		    <input id="result_list_6_counter" type="hidden" />
-		    <input id="result_list_6_freqs" type="hidden" />
-		    <input id="result_list_6_channels" type="hidden" />
-		  </li>
-		  <hr class="hr_no_padding" id="result_list_6_separator" style="visibility: hidden;">
-		  -->
-		  <input id="result_list_selected_index" type="hidden" />
-		</ul>
-      </div>
-
-      <div style="float: left; margin: 10px; margin-left:20px; border:2px solid #ebebeb; height:250px"></div>
-
-      <style>
-		    .filter-list-control-style {
-		    width: 120px;
-		  }
-
-		  .filter-list-control-style2 {
-		    width: 90px;
-		  }
-
-		  .material-icons.redled { color: #FF0000; }
-	 	  .material-icons.blueled { color: #0000FF; }
-
-	 	  .list_item_no_padding {
-	 	  	padding-top: 5.5px;
-	 	  	padding-bottom: 5.5px;
-	 	  	min-height: 32px;
-	 	  }
-	  </style>
-
-      <div class="page-content" style="float: left; margin: 0px 5px 5px 10px;">
-      		<h5 class="h5_style_no_margin" style="margin-left: 10px;">CHANNEL FILTER</h5>
+		<div class="page-content" style="float: left; margin: 0px 5px 5px 10px;">
+			<h5 class="h5_style_no_margin" style="margin-left: 10px;">CHANNEL FILTER</h5>
 			<ul class="filter-list-control-style mdl-list ul_no_padding" style="float: left; margin: 0px 5px 5px 10px;">
-			  <li class="mdl-list__item list_item_no_padding2">
-			    <span class="mdl-list__item-primary-content">ch 1</span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="filterChannel1" id="filterChannel1_checker">
-			        <input type="checkbox" id="filterChannel1" class="mdl-checkbox__input" />
-			      </label>
-			    </span>
-			  </li>
-			  <li class="mdl-list__item list_item_no_padding2">
-			    <span class="mdl-list__item-primary-content">ch 2</span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="filterChannel2" id="filterChannel2_checker">
-			        <input type="checkbox" id="filterChannel2" class="mdl-checkbox__input" />
-			      </label>
-			    </span>
-			  </li>
-			  <li class="mdl-list__item list_item_no_padding2">
-			    <span class="mdl-list__item-primary-content">ch 3</span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="filterChannel3" id="filterChannel3_checker">
-			        <input type="checkbox" id="filterChannel3" class="mdl-checkbox__input" />
-			      </label>
-			    </span>
-			  </li>
-			  <li class="mdl-list__item list_item_no_padding2">
-			    <span class="mdl-list__item-primary-content">ch 4</span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="filterChannel4" id="filterChannel4_checker">
-			        <input type="checkbox" id="filterChannel4" class="mdl-checkbox__input" />
-			      </label>
-			    </span>
-			  </li>
-			  <li class="mdl-list__item list_item_no_padding2">
-			    <span class="mdl-list__item-primary-content">ch 5</span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="filterChannel5" id="filterChannel5_checker">
-			        <input type="checkbox" id="filterChannel5" class="mdl-checkbox__input" />
-			      </label>
-			    </span>
-			  </li>
-			  <li class="mdl-list__item list_item_no_padding2">
-			    <span class="mdl-list__item-primary-content">ch 6</span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="filterChannel6" id="filterChannel6_checker">
-			        <input type="checkbox" id="filterChannel6" class="mdl-checkbox__input" />
-			      </label>
-			    </span>
-			  </li>
-			  <li class="mdl-list__item list_item_no_padding2">
-			    <span class="mdl-list__item-primary-content">ch 7</span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="filterChannel7" id="filterChannel7_checker">
-			        <input type="checkbox" id="filterChannel7" class="mdl-checkbox__input" />
-			      </label>
-			    </span>
-			  </li>
-			  <li class="mdl-list__item list_item_no_padding2">
-			    <span class="mdl-list__item-primary-content">ch 8</span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="filterChannel8" id="filterChannel8_checker">
-			        <input type="checkbox" id="filterChannel8" class="mdl-checkbox__input" />
-			      </label>
-			    </span>
-			  </li>
+				<li class="mdl-list__item list_item_no_padding2">
+					<span class="mdl-list__item-primary-content">ch 1</span>
+					<span class="mdl-list__item-secondary-action">
+						<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="filterChannel1" id="filterChannel1_checker">
+							<input type="checkbox" id="filterChannel1" class="mdl-checkbox__input" />
+						</label>
+					</span>
+				</li>
+				<li class="mdl-list__item list_item_no_padding2">
+					<span class="mdl-list__item-primary-content">ch 2</span>
+					<span class="mdl-list__item-secondary-action">
+						<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="filterChannel2" id="filterChannel2_checker">
+							<input type="checkbox" id="filterChannel2" class="mdl-checkbox__input" />
+						</label>
+					</span>
+				</li>
+				<li class="mdl-list__item list_item_no_padding2">
+					<span class="mdl-list__item-primary-content">ch 3</span>
+					<span class="mdl-list__item-secondary-action">
+						<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="filterChannel3" id="filterChannel3_checker">
+							<input type="checkbox" id="filterChannel3" class="mdl-checkbox__input" />
+						</label>
+					</span>
+				</li>
+				<li class="mdl-list__item list_item_no_padding2">
+					<span class="mdl-list__item-primary-content">ch 4</span>
+					<span class="mdl-list__item-secondary-action">
+						<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="filterChannel4" id="filterChannel4_checker">
+							<input type="checkbox" id="filterChannel4" class="mdl-checkbox__input" />
+						</label>
+					</span>
+				</li>
+				<li class="mdl-list__item list_item_no_padding2">
+					<span class="mdl-list__item-primary-content">ch 5</span>
+					<span class="mdl-list__item-secondary-action">
+						<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="filterChannel5" id="filterChannel5_checker">
+							<input type="checkbox" id="filterChannel5" class="mdl-checkbox__input" />
+						</label>
+					</span>
+				</li>
+				<li class="mdl-list__item list_item_no_padding2">
+					<span class="mdl-list__item-primary-content">ch 6</span>
+					<span class="mdl-list__item-secondary-action">
+						<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="filterChannel6" id="filterChannel6_checker">
+							<input type="checkbox" id="filterChannel6" class="mdl-checkbox__input" />
+						</label>
+					</span>
+				</li>
+				<li class="mdl-list__item list_item_no_padding2">
+					<span class="mdl-list__item-primary-content">ch 7</span>
+					<span class="mdl-list__item-secondary-action">
+						<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="filterChannel7" id="filterChannel7_checker">
+							<input type="checkbox" id="filterChannel7" class="mdl-checkbox__input" />
+						</label>
+					</span>
+				</li>
+				<li class="mdl-list__item list_item_no_padding2">
+					<span class="mdl-list__item-primary-content">ch 8</span>
+					<span class="mdl-list__item-secondary-action">
+						<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="filterChannel8" id="filterChannel8_checker">
+							<input type="checkbox" id="filterChannel8" class="mdl-checkbox__input" />
+						</label>
+					</span>
+				</li>
 			</ul>
-      </div>
-	  <!-- REPORT VIEW의 주파수 라디오 버튼 -->
-      <div class="page-content" style="float: left; margin: 0px 5px 5px 10px;">
-      		<h5 class="h5_style_no_margin" style="margin-left: 10px;">FREQ FILTER</h5>
-      		<ul class="filter-list-control-style mdl-list ul_no_padding" style="float: left; margin: 0px 5px 5px 10px;">
-			  <li class="mdl-list__item list_item_no_padding">
-			    <span class="mdl-list__item-primary-content">4000</span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="filterFreq1" id="filterFreq1_checker">
-			        <input type="radio" id="filterFreq1" class="mdl-radio__button" name="filterFreqOptions"/>
-			      </label>
-			    </span>
-			  </li>
-			  <li class="mdl-list__item list_item_no_padding">
-			    <span class="mdl-list__item-primary-content">8000</span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="filterFreq2" id="filterFreq2_checker">
-			        <input type="radio" id="filterFreq2" class="mdl-radio__button" name="filterFreqOptions"/>
-			      </label>
-			    </span>
-			  </li>
-			  <li class="mdl-list__item list_item_no_padding">
-			    <span class="mdl-list__item-primary-content">16000</span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="filterFreq3" id="filterFreq3_checker">
-			        <input type="radio" id="filterFreq3" class="mdl-radio__button" name="filterFreqOptions"/>
-			      </label>
-			    </span>
-			  </li>
-			  <li class="mdl-list__item list_item_no_padding">
-			    <span class="mdl-list__item-primary-content">32000</span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="filterFreq4" id="filterFreq4_checker">
-			        <input type="radio" id="filterFreq4" class="mdl-radio__button" name="filterFreqOptions"/>
-			      </label>
-			    </span>
-			  </li>
-			  <li class="mdl-list__item list_item_no_padding">
-			    <span class="mdl-list__item-primary-content">64000</span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="filterFreq5" id="filterFreq5_checker">
-			        <input type="radio" id="filterFreq5" class="mdl-radio__button" name="filterFreqOptions"/>
-			      </label>
-			    </span>
-			  </li>
-			  <li class="mdl-list__item list_item_no_padding">
-			    <span class="mdl-list__item-primary-content">128000</span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="filterFreq6" id="filterFreq6_checker">
-			        <input type="radio" id="filterFreq6" class="mdl-radio__button" name="filterFreqOptions"/>
-			      </label>
-			    </span>
-			  </li>
-			  <!--
-			  <li class="mdl-list__item list_item_no_padding">
-			    <span class="mdl-list__item-primary-content">20000</span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="filterFreq5" id="filterFreq5_checker">
-			        <input type="radio" id="filterFreq5" class="mdl-radio__button" name="filterFreqOptions"/>
-			      </label>
-			    </span>
-			  </li>
-			  -->
+		</div>
+		<!-- REPORT VIEW의 주파수 라디오 버튼 -->
+		<div class="page-content" style="float: left; margin: 0px 5px 5px 10px;">
+			<h5 class="h5_style_no_margin" style="margin-left: 10px;">FREQ FILTER</h5>
+			<ul class="filter-list-control-style mdl-list ul_no_padding" style="float: left; margin: 0px 5px 5px 10px;">
+				<li class="mdl-list__item list_item_no_padding">
+					<span class="mdl-list__item-primary-content">4000</span>
+					<span class="mdl-list__item-secondary-action">
+						<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="filterFreq1" id="filterFreq1_checker">
+							<input type="radio" id="filterFreq1" class="mdl-radio__button" name="filterFreqOptions"/>
+						</label>
+					</span>
+				</li>
+				<li class="mdl-list__item list_item_no_padding">
+					<span class="mdl-list__item-primary-content">8000</span>
+					<span class="mdl-list__item-secondary-action">
+						<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="filterFreq2" id="filterFreq2_checker">
+							<input type="radio" id="filterFreq2" class="mdl-radio__button" name="filterFreqOptions"/>
+						</label>
+					</span>
+				</li>
+				<li class="mdl-list__item list_item_no_padding">
+					<span class="mdl-list__item-primary-content">16000</span>
+					<span class="mdl-list__item-secondary-action">
+						<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="filterFreq3" id="filterFreq3_checker">
+							<input type="radio" id="filterFreq3" class="mdl-radio__button" name="filterFreqOptions"/>
+						</label>
+					</span>
+				</li>
+				<li class="mdl-list__item list_item_no_padding">
+					<span class="mdl-list__item-primary-content">32000</span>
+					<span class="mdl-list__item-secondary-action">
+						<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="filterFreq4" id="filterFreq4_checker">
+							<input type="radio" id="filterFreq4" class="mdl-radio__button" name="filterFreqOptions"/>
+						</label>
+					</span>
+				</li>
+				<li class="mdl-list__item list_item_no_padding">
+					<span class="mdl-list__item-primary-content">64000</span>
+					<span class="mdl-list__item-secondary-action">
+						<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="filterFreq5" id="filterFreq5_checker">
+							<input type="radio" id="filterFreq5" class="mdl-radio__button" name="filterFreqOptions"/>
+						</label>
+					</span>
+				</li>
+				<li class="mdl-list__item list_item_no_padding">
+					<span class="mdl-list__item-primary-content">128000</span>
+					<span class="mdl-list__item-secondary-action">
+						<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="filterFreq6" id="filterFreq6_checker">
+							<input type="radio" id="filterFreq6" class="mdl-radio__button" name="filterFreqOptions"/>
+						</label>
+					</span>
+				</li>
+				<!--
+				<li class="mdl-list__item list_item_no_padding">
+					<span class="mdl-list__item-primary-content">20000</span>
+					<span class="mdl-list__item-secondary-action">
+						<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="filterFreq5" id="filterFreq5_checker">
+							<input type="radio" id="filterFreq5" class="mdl-radio__button" name="filterFreqOptions"/>
+						</label>
+					</span>
+				</li>
+				-->
 			</ul>
-      </div>
-      <div class="page-content" style="float: left; margin: 0px 5px 5px 10px;">
-      		<h5 class="h5_style_no_margin" style="margin-left: 10px;">DATA SELECTION</h5>
-      		<ul class="filter-list-control-style2 mdl-list ul_no_padding" style="float: left; margin: 0px 5px 5px 10px;">
-			  <li class="mdl-list__item list_item_no_padding">
-			    <span class="mdl-list__item-primary-content">Z</span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="filterZ" id="filterZ_checker">
-			        <input type="radio" id="filterZ" class="mdl-radio__button" name="filterDataOptions" checked/>
-			      </label>
-			    </span>
-			  </li>
-			  <li class="mdl-list__item list_item_no_padding">
-			    <span class="mdl-list__item-primary-content">R</span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="filterR" id="filterR_checker">
-			        <input type="radio" id="filterR" class="mdl-radio__button" name="filterDataOptions"/>
-			      </label>
-			    </span>
-			  </li>
-			  <li class="mdl-list__item list_item_no_padding">
-			    <span class="mdl-list__item-primary-content">C</span>
-			    <span class="mdl-list__item-secondary-action">
-			      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="filterC" id="filterC_checker">
-			        <input type="radio" id="filterC" class="mdl-radio__button" name="filterDataOptions"/>
-			      </label>
-			    </span>
-			  </li>
+		</div>
+		<div class="page-content" style="float: left; margin: 0px 5px 5px 10px;">
+			<h5 class="h5_style_no_margin" style="margin-left: 10px;">DATA SELECTION</h5>
+			<ul class="filter-list-control-style2 mdl-list ul_no_padding" style="float: left; margin: 0px 5px 5px 10px;">
+				<li class="mdl-list__item list_item_no_padding">
+					<span class="mdl-list__item-primary-content">Z</span>
+					<span class="mdl-list__item-secondary-action">
+						<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="filterZ" id="filterZ_checker">
+							<input type="radio" id="filterZ" class="mdl-radio__button" name="filterDataOptions" checked/>
+						</label>
+					</span>
+				</li>
+				<li class="mdl-list__item list_item_no_padding">
+					<span class="mdl-list__item-primary-content">R</span>
+					<span class="mdl-list__item-secondary-action">
+						<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="filterR" id="filterR_checker">
+							<input type="radio" id="filterR" class="mdl-radio__button" name="filterDataOptions"/>
+						</label>
+					</span>
+				</li>
+				<li class="mdl-list__item list_item_no_padding">
+					<span class="mdl-list__item-primary-content">C</span>
+					<span class="mdl-list__item-secondary-action">
+						<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="filterC" id="filterC_checker">
+							<input type="radio" id="filterC" class="mdl-radio__button" name="filterDataOptions"/>
+						</label>
+					</span>
+				</li>
 			</ul>
-      </div>
-	  <div style="float: left; margin: 10px; margin-left:20px; border:2px solid #ebebeb; height:250px"></div>
-      <div class="page-content" style="float: left; margin: 0px 5px 5px 10px;">
-      		<h5 class="h5_style_no_margin" style="margin-left: 10px;">EXPORT DATA</h5>
-      		<button id="saveExcel" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="margin: 30px 20px 0px 40px">
-      			SAVE AS EXCEL
+		</div>
+		<div style="float: left; margin: 10px; margin-left:20px; border:2px solid #ebebeb; height:250px"></div>
+		<div class="page-content" style="float: left; margin: 0px 5px 5px 10px;">
+			<h5 class="h5_style_no_margin" style="margin-left: 10px;">EXPORT DATA</h5>
+			<button id="saveExcel" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="margin: 30px 20px 0px 40px">
+				SAVE AS EXCEL
 			</button>
 			<br>
 			<button id="saveText" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="margin: 30px 20px 0px 40px">
-      			SAVE AS TEXT
+				SAVE AS TEXT
 			</button>
-      </div>
-      <div class="page-content" style="float: bottom;">
-      		<iframe id="graph_view" width="100%" height="550px" src=""></iframe>
-      </div>
-    </section>
-  </main>
+		</div>
+		<div class="page-content" style="float: bottom;">
+			<iframe id="graph_view" width="100%" height="550px" src=""></iframe>
+		</div>
+		</section>
+	</main>
 </div>
 </body>
 </html>
