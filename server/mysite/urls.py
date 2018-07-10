@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^command/', views.command),
     url(r'^graph/', views.graph),
     url(r'^$', views.main),
-    url(r'^exportData/', views.exportData),
+    url(r'^exportData/excel/', views.exportDataToExcel),
+	url(r'^exportData/text/', views.exportDataToText),
     url(r'error/', views.error),
 ] + static(settings.STATIC_URL, document_ROOT=settings.STATIC_URL)

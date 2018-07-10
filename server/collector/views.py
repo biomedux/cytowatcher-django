@@ -1,10 +1,10 @@
+# coding: utf-8
 # Date : 2017.01.02 ~
 # Author : Jun Yeon
 
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-# from ConfigParser import RawConfigParser
 from . import protocol as STATE
 from collector.models import *
 from django.db.models import Max
@@ -16,15 +16,10 @@ import ast
 import datetime
 import random
 
-# import matplotlib
-# import matplotlib.pyplot as plt
-
 import django_excel as excel 	# database download to excel file
-
 
 # This web server only manages the device's status, data.
 # Not handle the device's state, only bypass the commands.
-
 
 # for setting the config
 def initConfig():
@@ -384,7 +379,7 @@ def graph(request):
 	return HttpResponse('')
 
 # Return the Excel of the selected 'dataCounter'
-def exportData(request):
+def exportDataToExcel(request):
 	dataCounter = request.GET.get('dataCounter', '')
 	data = DwfMeasureData.objects.filter(dataCounter = dataCounter)
 	data2 = DwfResultData.objects.get(dataCounter = dataCounter)
@@ -395,6 +390,45 @@ def exportData(request):
 	print(file_name)
 
 	return excel.make_response_from_query_sets(data, column_names, 'xlsx', file_name=file_name)
+
+"""
+dataCounter를 get으로 받아 해당 번호에 맞는 실험을 텍스트 파일로 리턴.
+서버에 파일을 저장하지 않고 HttpResponse를 통해 파일 다운로드를 제공.
+"""
+def exportDataToText(request):
+	dataCounter = request.GET.get('dataCounter', '')
+	data = DwfMeasureData.objects.filter(dataCounter = dataCounter)
+	data2 = DwfResultData.objects.get(dataCounter = dataCounter)
+
+	file_name = str(data2.startTime) + " to " + str(data2.targetTime) + ".txt"
+	content = ("{0:>19}\t    {1:^7}     {2:^6}  {3:^9}      {4:^9}\r\n").format("time", "channel", "freq", "Z", "R")
+
+	for x in data:
+		content += ("{0:>19}    {1:>7}  {2:>7}  {3:>9}  {4:>9}\r\n").format(str(x.time), str(x.channel), x.freq, x.Z, x.R)
+
+	response = HttpResponse(content, content_type='text/plain')
+	response['Content-Disposition'] = 'attachment; filename={0}'.format(file_name)
+
+	f = open("./test.txt", 'w')
+
+	# 파일로 서버에 저장 한 후 파일을 전송하는 경우 아래의 코드 사용
+	"""
+	f.write(("{0:^19}\t{1:^7}\t{2:^6}\t{3:^9}\t{4:^9}\r\n").format("time", "channel", "freq", "Z", "R"))
+	for x in data:
+		f.write(("{0:>19}\t{1:^7}\t{2:>6}\t{3:>9}\t{4:>9}\r\n").format(str(x.time), str(x.channel), x.freq, x.Z, x.R))
+	f.close()
+
+	import os
+	from django.core.files import File
+	path = os.path.realpath("test.txt")
+	f = open(path, 'r')
+	myfile = File(f)
+	response = HttpResponse(myfile, content_type="text/plain")
+	response['Content-Disposition'] = 'attachment; filename={0}'.format(file_name)
+	print(path)
+	"""
+	return response
+
 
 def error(request):
 	return render(request, 'error.html')

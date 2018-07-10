@@ -26,4 +26,5 @@ def graph() 함수 chart_options의 x, yAxis수정
 	'max': 30000  
 }
 
-##
+## Version 1.1 추가내용
+REPORT VIEW의 [SAVE AS TEXT] 버튼 추가

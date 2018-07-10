@@ -926,7 +926,17 @@
 			// getting dataCounter
 			var counter = $('#result_list_' + index + '_counter').val();
 
-        	window.location.replace("/exportData/?dataCounter=" + counter);
+        	window.location.replace("/exportData/excel/?dataCounter=" + counter);
+        });
+
+		$('#saveText').click(function() {
+        	// getting the current select data
+			var index = $('#result_list_selected_index').val();
+
+			// getting dataCounter
+			var counter = $('#result_list_' + index + '_counter').val();
+
+        	window.location.replace("/exportData/text/?dataCounter=" + counter);
         });
  	});
 </script>
@@ -1600,6 +1610,10 @@
       		<h5 class="h5_style_no_margin" style="margin-left: 10px;">EXPORT DATA</h5>
       		<button id="saveExcel" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="margin: 30px 20px 0px 40px">
       			SAVE AS EXCEL
+			</button>
+			<br>
+			<button id="saveText" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="margin: 30px 20px 0px 40px">
+      			SAVE AS TEXT
 			</button>
       </div>
       <div class="page-content" style="float: bottom;">
