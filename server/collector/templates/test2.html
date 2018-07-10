@@ -1,0 +1,9 @@
+<head>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+    {% load chartit %}
+    {{ testData|load_charts:"container" }}
+</head>
+<body>
+    <div id='container'></div>
+</body>

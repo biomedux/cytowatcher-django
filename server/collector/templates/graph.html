@@ -1,0 +1,12 @@
+<head>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+    <!-- load_charts filter takes a comma-separated list of id's where -->
+                                 
+    {% load chartit %}
+    {{ graphData|load_charts:"container" }}
+    </script>
+</head>
+<body>
+    <div id='container'>Wait the graph view is loading..</div>
+</body>
